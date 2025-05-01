@@ -2,36 +2,25 @@ import React from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Login from './Login'
 import Navbar from "./Navbar"
-import LandingPage from './components/batch_react/LandingPage'
-import QuoteCard from './QuoteCard'
-import Dashboard from './dashboard/Dashboard'
-import Jobpost from './dashboard/Jobpost'
-import AttendanceTable from './dashboard/AttendanceTable'
-import UserList from './components/UserList '
-import Details from './components/Details'
-import Createcourse from './components/Course/Createcourse'
+import OtpVerification from './OtpVerification'
+import PropertyTable from '../src/components/PropertyTable ';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import PropertyListing from './components/PropertyListing '
 
 function App() {
   return (
     <>
-    <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<Navbar/>}>
-         <Route index element={<LandingPage/>}/>
-         <Route path='/login' element={<Login/>} />
-         <Route path='/details/:id' element={<Details/>} />
-         
-         <Route path='/quote' element={<QuoteCard/>} />
-         <Route path='/course' element={<Createcourse/>} />
-         <Route path="/user" element={<UserList/>}/>
-         <Route path='/dashboard' element={<Dashboard/>}>
-         <Route path='jobpost' element={<Jobpost/>} />
-         <Route path='attendance' element={<AttendanceTable/>} />
-         </Route>
-      </Route>
-      
-    </Routes>
-    </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Navbar />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/verification' element={<OtpVerification />} />
+          <Route path='/property' element={<PropertyTable />} />
+          <Route path='/approveproperty' element={<PropertyListing />} />
+          </Routes>
+      </BrowserRouter>
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   )
 }
